@@ -1,0 +1,12 @@
+*{
+    margin: 0.5em;
+
+}
+#meteo{
+    border: solid 1px black;
+    border-radius: 1em;
+
+}
+#meteo:hover{
+    box-shadow: 5px 5px 5px black;
+}

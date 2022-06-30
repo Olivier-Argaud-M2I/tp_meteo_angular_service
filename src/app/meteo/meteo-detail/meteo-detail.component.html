@@ -1,0 +1,17 @@
+
+
+<div id="meteo" (click)="detailMeteo(villeDemandee)">
+    <!-- <div id="ville">{{ville}}</div>
+    <div id="temperature">{{temperature}}°C</div>
+    <div id="condition">{{condition}}% d'humidité</div>
+    <img src="{{icon}}" alt=""> -->
+    <div id="ville">{{reponse.city_info.name}}</div>
+    <div id="temperature">{{reponse.current_condition.tmp}}°C</div>
+    <div id="condition">{{reponse.current_condition.humidity}}% d'humidité</div>
+    <img src="{{reponse.current_condition.icon}}" alt="">
+
+    <div *ngIf="toggle">
+        detail meteo
+        <app-forecast *ngFor="let forecast of forecasts" [forecast]="forecast" ></app-forecast>
+    </div>
+</div>

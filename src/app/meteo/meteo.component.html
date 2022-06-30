@@ -1,0 +1,8 @@
+
+
+<input type="text" #ville (change)="appelMeteo(ville.value); ville.value=''" >
+
+
+<div class="wrapper">
+    <app-meteo-detail *ngFor="let ville of meteoService.listeMeteo" [villeDemandee]="ville" ></app-meteo-detail> 
+</div>
