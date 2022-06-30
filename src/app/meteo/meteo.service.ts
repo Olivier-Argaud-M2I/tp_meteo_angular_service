@@ -18,12 +18,21 @@ export class MeteoService {
   // }
 
 
-  private _listeMeteo: string[] = [];
-  public get listeMeteo(): string[] {
-    return this._listeMeteo;
+  // private _listeMeteo: string[] = [];
+  // public get listeMeteo(): string[] {
+  //   return this._listeMeteo;
+  // }
+  // public set listeMeteo(value: string[]) {
+  //   this._listeMeteo = value;
+  // }
+
+
+  private _listeVille: any[] = [];
+  public get listeVille(): any[] {
+    return this._listeVille;
   }
-  public set listeMeteo(value: string[]) {
-    this._listeMeteo = value;
+  public set listeVille(value: any[]) {
+    this._listeVille = value;
   }
 
 
@@ -38,15 +47,30 @@ export class MeteoService {
   }
 
   addVille(ville:string){
-    //test pour n'afficher que 3 villes
-    if(this._listeMeteo.length > 2 ){
-      this._listeMeteo.splice(0, 1);
-    }
-    this._listeMeteo.push(ville); // ajout de la ville à la liste
-
-    // if(this._setVille.has(ville) && this._setVille.size > 2){
-    //   this._setVille.
+    // //test pour n'afficher que 3 villes
+    // if(this._listeMeteo.length > 2 ){
+    //   this._listeMeteo.splice(0, 1);
     // }
+    // this._listeMeteo.push(ville); // ajout de la ville à la liste
+
+    // // if(this._setVille.has(ville) && this._setVille.size > 2){
+    // //   this._setVille.
+    // // }
+
+
+    this.getMeteoVille(ville).subscribe((response)=>{
+      if(response.fcst_day_0 != undefined || response.fcst_day_0 != null){
+        console.log('reponse valid');
+         //test pour n'afficher que 3 villes
+        if(this.listeVille.length > 2 ){
+          this.listeVille.splice(0, 1);
+        }
+        this.listeVille.push(response);
+      }
+      else{
+        console.log('reponse invalid');
+      }
+    })
 
   }
 

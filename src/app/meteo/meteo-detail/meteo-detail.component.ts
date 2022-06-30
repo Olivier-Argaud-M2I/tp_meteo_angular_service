@@ -10,6 +10,9 @@ import { Forecast } from '../model/forecast';
 export class MeteoDetailComponent implements OnInit {
 
   @Input() villeDemandee!:string;
+
+  @Input() donnee:any;
+
   // ville!:string;
   // temperature!:number;
   // condition!:string;
@@ -27,7 +30,15 @@ export class MeteoDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.appelMeteo(this.villeDemandee);
+    // this.appelMeteo(this.villeDemandee);
+
+    this.reponse = this.donnee;
+
+    this.forecasts.push(this.donnee.fcst_day_0);
+    this.forecasts.push(this.donnee.fcst_day_1);
+    this.forecasts.push(this.donnee.fcst_day_2);
+    this.forecasts.push(this.donnee.fcst_day_3);
+    this.forecasts.push(this.donnee.fcst_day_4);
   }
 
   appelMeteo(ville:string){

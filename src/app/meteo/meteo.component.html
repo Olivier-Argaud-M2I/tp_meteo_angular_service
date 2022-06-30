@@ -4,5 +4,7 @@
 
 
 <div class="wrapper">
-    <app-meteo-detail *ngFor="let ville of meteoService.listeMeteo" [villeDemandee]="ville" ></app-meteo-detail> 
+    <!-- <app-meteo-detail *ngFor="let ville of meteoService.listeMeteo" [villeDemandee]="ville" ></app-meteo-detail>  -->
+    
+    <app-meteo-detail *ngFor="let ville of meteoService.listeVille" [donnee]="ville" ></app-meteo-detail> 
 </div>

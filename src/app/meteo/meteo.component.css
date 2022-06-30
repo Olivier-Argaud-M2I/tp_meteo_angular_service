@@ -5,3 +5,7 @@
     grid-auto-rows: minmax(100px, auto);
 }
 
+input{
+    border-radius: 0.5em;
+    height: 2em;
+}
