@@ -6,7 +6,7 @@ input{
     border-radius: 0.5em;
 }
 input:hover{
-    /* box-shadow: 5px,5px,5px,black; */
+    box-shadow: 5px 5px 5px black;
     background-color: coral;
 }
 

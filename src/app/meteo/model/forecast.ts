@@ -1,26 +1,39 @@
 export class Forecast{
 
-    private _temp: string = "";
-    public get temp(): string {
-        return this._temp;
+
+
+    private _day_long: string = "";
+    public get day_long(): string {
+        return this._day_long;
     }
-    public set temp(value: string) {
-        this._temp = value;
+    public set day_long(value: string) {
+        this._day_long = value;
     }
-    private _min: string = "";
-    public get min(): string {
-        return this._min;
+
+    private _date: string = "";
+    public get date(): string {
+        return this._date;
     }
-    public set min(value: string) {
-        this._min = value;
+    public set date(value: string) {
+        this._date = value;
     }
-    private _max: string = "";
-    public get max(): string {
-        return this._max;
+
+    private _tmin: string = "";
+    public get tmin(): string {
+        return this._tmin;
     }
-    public set max(value: string) {
-        this._max = value;
+    public set tmin(value: string) {
+        this._tmin = value;
     }
+
+    private _tmax: string = "";
+    public get tmax(): string {
+        return this._tmax;
+    }
+    public set tmax(value: string) {
+        this._tmax = value;
+    }
+  
     private _condition: string = "";
     public get condition(): string {
         return this._condition;
@@ -28,6 +41,7 @@ export class Forecast{
     public set condition(value: string) {
         this._condition = value;
     }
+
     private _icon: string = "";
     public get icon(): string {
         return this._icon;
@@ -37,10 +51,11 @@ export class Forecast{
     }
 
 
-    constructor(temp:string,min:string,max:string,condition:string,icon:string){
-        this._temp = temp;
-        this._min = min;
-        this._max = max;
+    constructor(day_long:string,date:string,tmin:string,tmax:string,condition:string,icon:string){
+        this._day_long = day_long;
+        this._date = date;
+        this._tmin = tmin;
+        this._tmax = tmax;
         this._condition = condition;
         this._icon = icon;
     }

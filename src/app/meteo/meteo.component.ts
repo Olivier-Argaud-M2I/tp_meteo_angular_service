@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MeteoService } from './meteo.service';
+import { Meteo } from './model/meteo';
 
 
 @Component({
@@ -21,6 +22,26 @@ export class MeteoComponent implements OnInit {
   }
 
   appelMeteo(ville:string){
-    this.meteoService.addVille(ville);
+    this.meteoService.getMeteoVille(ville).subscribe((response )=>{
+      let idInputVille = document.getElementById('idInputVille') as HTMLInputElement;
+      // test si l'api nous renvoie une reponse valide
+      if(response.fcst_day_0 != undefined || response.fcst_day_0 != null){
+        // on stock la reponse valide de meteo dans le service 
+        this.meteoService.addVille(response as Meteo);
+        idInputVille.setAttribute('class','');
+        idInputVille.setAttribute('placeholder','Saisissez le nom de votre ville');
+      }
+      else{
+        idInputVille.setAttribute('class','red');
+        idInputVille.setAttribute('placeholder','Ville non reconnue');
+      }
+    });
   }
+
+
+  supprimer(ville:Meteo){
+    this.meteoService.removeVille(ville);
+  }
+
 }
+

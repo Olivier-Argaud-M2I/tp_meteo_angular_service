@@ -1,11 +1,43 @@
 .wrapper {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
     grid-auto-rows: minmax(100px, auto);
+    align-content: center;
+}
+.wrapper > div {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
 }
 
-input{
+input[type='text']{
     border-radius: 0.5em;
     height: 2em;
+    width: 30em;
+    display: inline-block;
+}
+.titre{
+    height: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h1{
+    display: inline-block;
+}
+
+input[type='button']{
+    margin: auto;
+    width: 10em;
+    padding: 0.5em;
+    border-radius: 1em;
+}
+
+input[type='button']:hover{
+    background-color: red;
+   
+}
+.red{
+    background-color: red;
 }

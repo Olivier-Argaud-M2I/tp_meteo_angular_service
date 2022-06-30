@@ -9,7 +9,7 @@ import { Forecast } from '../model/forecast';
 })
 export class MeteoDetailComponent implements OnInit {
 
-  @Input() villeDemandee!:string;
+  // @Input() villeDemandee!:string;
 
   @Input() donnee:any;
 
@@ -17,61 +17,60 @@ export class MeteoDetailComponent implements OnInit {
   // temperature!:number;
   // condition!:string;
   // icon!:string;
-  reponse:any;
+  // reponse:any;
   toggle:boolean=false;
 
-  meteoService!:MeteoService;
+  // meteoService!:MeteoService;
   
   forecasts:any[]=[];
 
-  constructor(private _meteoService:MeteoService) {
-    this.meteoService = _meteoService;
-
-  }
+  // constructor(private _meteoService:MeteoService) {
+  //   this.meteoService = _meteoService;
+  // }
 
   ngOnInit(): void {
     // this.appelMeteo(this.villeDemandee);
 
-    this.reponse = this.donnee;
+    // this.reponse = this.donnee;
 
-    this.forecasts.push(this.donnee.fcst_day_0);
-    this.forecasts.push(this.donnee.fcst_day_1);
-    this.forecasts.push(this.donnee.fcst_day_2);
-    this.forecasts.push(this.donnee.fcst_day_3);
-    this.forecasts.push(this.donnee.fcst_day_4);
+    this.forecasts.push(this.donnee.fcst_day_0 as Forecast);
+    this.forecasts.push(this.donnee.fcst_day_1 as Forecast);
+    this.forecasts.push(this.donnee.fcst_day_2 as Forecast);
+    this.forecasts.push(this.donnee.fcst_day_3 as Forecast);
+    this.forecasts.push(this.donnee.fcst_day_4 as Forecast);
   }
 
-  appelMeteo(ville:string){
-    this._meteoService.getMeteoVille(ville).subscribe((response)=>{
-      console.log(response);
-      this.reponse = response;
-      // this.ville = response.city_info.name;
-      // this.temperature = response.current_condition.tmp;
-      // this.condition = response.current_condition.humidity;
-      // this.icon = response.current_condition.icon;
+  // appelMeteo(ville:string){
+  //   this._meteoService.getMeteoVille(ville).subscribe((response)=>{
+  //     console.log(response);
+  //     this.reponse = response;
+  //     // this.ville = response.city_info.name;
+  //     // this.temperature = response.current_condition.tmp;
+  //     // this.condition = response.current_condition.humidity;
+  //     // this.icon = response.current_condition.icon;
 
-      this.forecasts.push(response.fcst_day_0);
-      this.forecasts.push(response.fcst_day_1);
-      this.forecasts.push(response.fcst_day_2);
-      this.forecasts.push(response.fcst_day_3);
-      this.forecasts.push(response.fcst_day_4);
+  //     this.forecasts.push(response.fcst_day_0);
+  //     this.forecasts.push(response.fcst_day_1);
+  //     this.forecasts.push(response.fcst_day_2);
+  //     this.forecasts.push(response.fcst_day_3);
+  //     this.forecasts.push(response.fcst_day_4);
       
-      // this.testForecast.forEach((forecast)=>{
-      //   console.log(forecast);
-      // })
-      // // for (let i = 0; i < 4; i++) {
-      // //   this.forecasts.push(new Forecast())
+  //     // this.testForecast.forEach((forecast)=>{
+  //     //   console.log(forecast);
+  //     // })
+  //     // // for (let i = 0; i < 4; i++) {
+  //     // //   this.forecasts.push(new Forecast())
          
-      // //  }
+  //     // //  }
 
-    });
-  }
+  //   });
+  // }
 
   detailMeteo(ville:string){
     console.log(ville);
     this.toggle = !this.toggle;
    
   }
-}
 
+}
 
