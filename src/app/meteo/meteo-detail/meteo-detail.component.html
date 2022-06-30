@@ -10,8 +10,7 @@
     <div id="condition">{{reponse.current_condition.humidity}}% d'humidité</div>
     <img src="{{reponse.current_condition.icon}}" alt="">
 
-    <div *ngIf="toggle">
-        detail meteo
+    <div *ngIf="toggle" class="wrapper">
         <app-forecast *ngFor="let forecast of forecasts" [forecast]="forecast" ></app-forecast>
     </div>
 </div>
