@@ -1,0 +1,12 @@
+
+<app-starwar-header></app-starwar-header>
+
+<div>
+
+    <input  *ngIf="number>0" type="button" value="-"  (click)="setNumber(-1)">
+
+    <app-people-detail [number]="number"></app-people-detail>
+
+    <input  type="button" value="+"  (click)="setNumber(1)">
+    
+</div>

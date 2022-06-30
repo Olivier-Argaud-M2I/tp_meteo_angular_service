@@ -1,0 +1,10 @@
+input{
+    border-radius: 0.5em;
+    padding: 0.5em; 
+    /* margin-left: 1em; */
+    margin-right: 2em;  
+}
+
+input:hover{
+  box-shadow: 5px 5px 5px black;
+}

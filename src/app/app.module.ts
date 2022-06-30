@@ -10,6 +10,12 @@ import { MeteoComponent } from './meteo/meteo.component';
 import { StarwarComponent } from './starwar/starwar.component';
 import { MeteoDetailComponent } from './meteo/meteo-detail/meteo-detail.component';
 import { ForecastComponent } from './meteo/forecast/forecast.component';
+import { PeopleComponent } from './starwar/people/people.component';
+import { PlanetsComponent } from './starwar/planets/planets.component';
+import { StarshipComponent } from './starwar/starship/starship.component';
+import { StarwarHeaderComponent } from './starwar/starwar-header/starwar-header.component';
+import { PeopleDetailComponent } from './starwar/people/people-detail/people-detail.component';
+import { PlanetsDetailComponent } from './starwar/planets/planets-detail/planets-detail.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +24,13 @@ import { ForecastComponent } from './meteo/forecast/forecast.component';
     MeteoComponent,
     StarwarComponent,
     MeteoDetailComponent,
-    ForecastComponent
+    ForecastComponent,
+    PeopleComponent,
+    PlanetsComponent,
+    StarshipComponent,
+    StarwarHeaderComponent,
+    PeopleDetailComponent,
+    PlanetsDetailComponent
   ],
   imports: [
     BrowserModule,

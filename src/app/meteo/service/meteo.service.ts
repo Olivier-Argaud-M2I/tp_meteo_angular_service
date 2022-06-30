@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Meteo } from './model/meteo';
+import { Meteo } from '../model/meteo';
 
 
 @Injectable({
