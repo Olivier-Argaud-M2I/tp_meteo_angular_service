@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FormulaireComponent } from './formulaire/formulaire.component';
+import { Formulaire2Component } from './formulaire2/formulaire2.component';
+import { Formulaire3Component } from './formulaire3/formulaire3.component';
 import { AdminComponent } from './header/admin/admin.component';
 import { LoggedInGuardService } from './logged-in-guard.service';
 import { LoginComponent } from './login/login.component';
@@ -20,6 +23,9 @@ const routes: Routes = [
   { path: 'people/:id', component: PeopleComponent },
   { path: 'planets', component: PlanetsComponent },
   { path: 'starships', component: StarshipComponent },
+  { path: 'formulaire', component: FormulaireComponent },
+  { path: 'formulaire2', component: Formulaire2Component },
+  { path: 'formulaire3', component: Formulaire3Component },
   { path: 'admin', component: AdminComponent, canActivate:[LoggedInGuardService] },
   { path: '**',component: MeteoComponent}
 

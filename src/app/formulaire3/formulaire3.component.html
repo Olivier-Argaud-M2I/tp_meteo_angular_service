@@ -1,0 +1,19 @@
+<p>formulaire3 works!</p>
+
+<form (ngSubmit)="register()" [formGroup]="userForm">
+
+    <div>
+        <label> Username</label>
+        <input type="text" formControlName="username">
+        <div style="color: red;" *ngIf="userForm.get('username')?.dirty  &&  userForm.get('username')?.hasError('required')"   > pas bien</div>
+    </div>
+    <div>
+        <label> Password</label>
+        <input type="password" formControlName="password">
+        <div style="color: red;" *ngIf="userForm.get('password')?.dirty  &&  userForm.get('password')?.hasError('required')"   > pas bien</div>
+    </div>
+
+    <input type="submit" value="Envoyer" [disabled]="userForm.invalid">
+    <input type="button" value="Reset" (click)="reset()">
+
+</form>

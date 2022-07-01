@@ -1,0 +1,27 @@
+<p>formulaire2 works!</p>
+
+
+<form (ngSubmit)="register(userForm.value)" #userForm="ngForm">
+
+    <div>
+        <label for="username"> Username</label>
+        <input type="text" name="username" [(ngModel)]="user.username" required minlength="3">
+        <div *nfIf="username.dirty && username.hasError('required')"> pas bien du tout</div>
+    </div>
+    <div>
+        <label for="password"> Password</label>
+        <input type="password" name="password" [(ngModel)]="user.password">
+        <div *nfIf="password.dirty && password.hasError('required')"> pas bien du tout</div>
+    </div>
+
+    <input type="submit" value="Envoyer">
+
+</form>
+
+
+<p>
+    {{user.username}}
+</p>
+<p>
+    {{user.password}}
+</p>

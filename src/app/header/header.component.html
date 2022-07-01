@@ -7,6 +7,9 @@
 <input type="button" routerLink="/starwar" routerLinkActive = "selectedMenu"  value="Starwar">
 <input type="button" routerLink="/admin" routerLinkActive = "selectedMenu"  value="Admin">
 <input type="button" routerLink="/login" routerLinkActive = "selectedMenu"  value="Login" *ngIf="!(isLogged())">
+<input type="button" routerLink="/formulaire" routerLinkActive = "selectedMenu"  value="Formulaire">
+<input type="button" routerLink="/formulaire2" routerLinkActive = "selectedMenu"  value="Formulaire2">
+<input type="button" routerLink="/formulaire3" routerLinkActive = "selectedMenu"  value="Formulaire3">
 
 <input type="button" (click)="logOut()"  value="Logout" *ngIf="isLogged()">
 

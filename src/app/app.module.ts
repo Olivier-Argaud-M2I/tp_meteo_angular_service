@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
 import { RouterModule } from '@angular/router';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,9 @@ import { PeopleDetailComponent } from './starwar/people/people-detail/people-det
 import { PlanetsDetailComponent } from './starwar/planets/planets-detail/planets-detail.component';
 import { AdminComponent } from './header/admin/admin.component';
 import { LoginComponent } from './login/login.component';
+import { FormulaireComponent } from './formulaire/formulaire.component';
+import { Formulaire2Component } from './formulaire2/formulaire2.component';
+import { Formulaire3Component } from './formulaire3/formulaire3.component';
 
 @NgModule({
   declarations: [
@@ -34,13 +38,18 @@ import { LoginComponent } from './login/login.component';
     PeopleDetailComponent,
     PlanetsDetailComponent,
     AdminComponent,
-    LoginComponent
+    LoginComponent,
+    FormulaireComponent,
+    Formulaire2Component,
+    Formulaire3Component
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
     // ,
     // RouterModule.forRoot()
   ],
