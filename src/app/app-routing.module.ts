@@ -7,10 +7,11 @@ import { StarshipComponent } from './starwar/starship/starship.component';
 import { StarwarComponent } from './starwar/starwar.component';
 
 const routes: Routes = [
-
+  { path: '', component: MeteoComponent },
   { path: 'meteo', component: MeteoComponent },
   { path: 'starwar', component: StarwarComponent },
   { path: 'people', component: PeopleComponent },
+  { path: 'people/:id', component: PeopleComponent },
   { path: 'planets', component: PlanetsComponent },
   { path: 'starships', component: StarshipComponent },
 

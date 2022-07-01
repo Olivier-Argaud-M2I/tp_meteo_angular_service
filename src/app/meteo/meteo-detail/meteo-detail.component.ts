@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MeteoService } from '../service/meteo.service'
 import { Forecast } from '../model/forecast';
+import { Meteo } from '../model/meteo';
 
 @Component({
   selector: 'app-meteo-detail',
@@ -20,13 +21,13 @@ export class MeteoDetailComponent implements OnInit {
   // reponse:any;
   toggle:boolean=false;
 
-  // meteoService!:MeteoService;
+  meteoService!:MeteoService;
   
   forecasts:any[]=[];
 
-  // constructor(private _meteoService:MeteoService) {
-  //   this.meteoService = _meteoService;
-  // }
+  constructor(private _meteoService:MeteoService) {
+    this.meteoService = _meteoService;
+  }
 
   ngOnInit(): void {
     // this.appelMeteo(this.villeDemandee);
@@ -70,6 +71,11 @@ export class MeteoDetailComponent implements OnInit {
     console.log(ville);
     this.toggle = !this.toggle;
    
+  }
+
+  
+  supprimer(){
+    this.meteoService.removeVille(this.donnee);
   }
 
 }

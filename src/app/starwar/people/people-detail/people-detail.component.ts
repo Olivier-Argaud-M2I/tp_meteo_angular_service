@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
 import { People } from '../../model/people';
 import { StarwarService } from '../../service/starwar.service';
 
@@ -10,13 +9,21 @@ import { StarwarService } from '../../service/starwar.service';
 })
 export class PeopleDetailComponent implements OnInit {
 
-  @Input() number:number=0;
+  @Input() number:any="0";
+
+  // number:any="5";
 
   people!:People;
 
-  constructor(private _starwarService:StarwarService) { }
+  constructor(
+    private _starwarService:StarwarService,
+  ) { }
 
   ngOnInit(): void {
+    // this._route.paramMap.subscribe((params:ParamMap)=>{
+    //   this.number = params.get('id');
+    // })
+
     this.actualisationPerso();
   }
   ngOnChanges(){
@@ -25,7 +32,7 @@ export class PeopleDetailComponent implements OnInit {
   }
 
   actualisationPerso(){
-    this._starwarService.getPeople(this.number.toString()).subscribe((reponse: People)=>{
+    this._starwarService.getPeople(this.number).subscribe((reponse: People)=>{
       this.people = reponse;
     })
   }
