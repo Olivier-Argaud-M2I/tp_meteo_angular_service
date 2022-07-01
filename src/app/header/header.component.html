@@ -5,5 +5,13 @@
 
 <input type="button" routerLink="/meteo" routerLinkActive = "selectedMenu"  value="Meteo">
 <input type="button" routerLink="/starwar" routerLinkActive = "selectedMenu"  value="Starwar">
+<input type="button" routerLink="/admin" routerLinkActive = "selectedMenu"  value="Admin">
+<input type="button" routerLink="/login" routerLinkActive = "selectedMenu"  value="Login" *ngIf="!(isLogged())">
+
+<input type="button" (click)="logOut()"  value="Logout" *ngIf="isLogged()">
 
 <!-- <input type="button" (click)="go()"> -->
+
+<div *ngIf="isLogged()">
+    Bienvenue Olivier
+</div>

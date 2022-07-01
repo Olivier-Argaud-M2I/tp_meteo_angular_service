@@ -16,6 +16,8 @@ import { StarshipComponent } from './starwar/starship/starship.component';
 import { StarwarHeaderComponent } from './starwar/starwar-header/starwar-header.component';
 import { PeopleDetailComponent } from './starwar/people/people-detail/people-detail.component';
 import { PlanetsDetailComponent } from './starwar/planets/planets-detail/planets-detail.component';
+import { AdminComponent } from './header/admin/admin.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { PlanetsDetailComponent } from './starwar/planets/planets-detail/planets
     StarshipComponent,
     StarwarHeaderComponent,
     PeopleDetailComponent,
-    PlanetsDetailComponent
+    PlanetsDetailComponent,
+    AdminComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
