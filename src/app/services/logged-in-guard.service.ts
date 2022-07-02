@@ -12,10 +12,10 @@ export class LoggedInGuardService implements CanActivate,CanDeactivate<any>{
 
   
   canDeactivate(component: any, currentRoute: ActivatedRouteSnapshot, currentState: RouterStateSnapshot, nextState?: RouterStateSnapshot | undefined): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    return this.log.login || this.router.parseUrl('/login');
+    return this.log.isLogged || this.router.parseUrl('/login');
   }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    return this.log.login || this.router.parseUrl('/login');
+    return this.log.isLogged || this.router.parseUrl('/login');
   }
 
 }

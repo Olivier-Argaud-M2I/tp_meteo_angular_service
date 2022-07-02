@@ -15,11 +15,14 @@ export class User{
         this._password = value;
     }
 
-    constructor(){
-
+    constructor(username:string,password:string){
+        this._username = username;
+        this._password = password;
     }
 
-    
+    toString(){
+        return this._username+" "+this._password;
+    }
 
 
 

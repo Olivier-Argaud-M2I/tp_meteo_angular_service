@@ -6,15 +6,15 @@
 <input type="button" routerLink="/meteo" routerLinkActive = "selectedMenu"  value="Meteo">
 <input type="button" routerLink="/starwar" routerLinkActive = "selectedMenu"  value="Starwar">
 <input type="button" routerLink="/admin" routerLinkActive = "selectedMenu"  value="Admin">
-<input type="button" routerLink="/login" routerLinkActive = "selectedMenu"  value="Login" *ngIf="!(isLogged())">
-<input type="button" routerLink="/formulaire" routerLinkActive = "selectedMenu"  value="Formulaire">
-<input type="button" routerLink="/formulaire2" routerLinkActive = "selectedMenu"  value="Formulaire2">
-<input type="button" routerLink="/formulaire3" routerLinkActive = "selectedMenu"  value="Formulaire3">
-
-<input type="button" (click)="logOut()"  value="Logout" *ngIf="isLogged()">
+<input type="button" routerLink="/snake" routerLinkActive = "selectedMenu"  value="Snake">
+<input type="button" routerLink="/login" routerLinkActive = "selectedMenu"  value="Login" *ngIf="!loginService.isLogged">
+<input type="button" routerLink="/formulaire" routerLinkActive = "selectedMenu"  value="Login2" *ngIf="!loginService.isLogged">
+<input type="button" routerLink="/formulaire2" routerLinkActive = "selectedMenu"  value="Login3" *ngIf="!loginService.isLogged">
+<!-- <input type="button" routerLink="/formulaire3" routerLinkActive = "selectedMenu"  value="Formulaire3"> -->
+<input type="button" (click)="logOut()"  value="Logout" *ngIf="loginService.isLogged">
 
 <!-- <input type="button" (click)="go()"> -->
 
-<div *ngIf="isLogged()">
-    Bienvenue Olivier
+<div *ngIf="loginService.isLogged">
+    Bienvenue {{loginService.loggedUser?.username}}
 </div>

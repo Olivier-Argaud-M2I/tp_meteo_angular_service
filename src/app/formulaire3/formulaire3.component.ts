@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { User } from '../model/user';
-import { UserLoginService } from '../user-login.service';
+import { UserLoginService } from '../services/user-login.service';
 
 @Component({
   selector: 'app-formulaire3',
@@ -16,19 +16,27 @@ export class Formulaire3Component implements OnInit {
   // usernameCtrl = new FormControl('');
   // passwordCtrl = new FormControl('');
   usernameCtrl = this.fb.control('',[Validators.required,Validators.minLength(3)]);
-  passwordCtrl = this.fb.control('',[Validators.required]);
-
+  passwordCtrl = this.fb.control('',[Validators.required,Validators.minLength(5)]);
+  passwordCtrlConf = this.fb.control('');
+ 
   // userForm:FormGroup<{
   //   username: FormControl<string|null>;
   //   password: FormControl<string|null>;
   // }>;
 
+  checkPasswords: ValidatorFn = (group: AbstractControl):  ValidationErrors | null => { 
+    let pass = this.passwordCtrl.value;
+    let confirmPass = this.passwordCtrlConf.value
+    return pass === confirmPass ? null : { notSame: true }
+  }
+
   userForm = this.fb.group({
     username:this.usernameCtrl,
-    password:this.passwordCtrl
-  });
+    password:this.passwordCtrl,
+    passwordConf:this.passwordCtrlConf
+  },{validators:this.checkPasswords});
 
-  constructor(private fb:FormBuilder,private userlogin:UserLoginService) {
+  constructor(private fb:FormBuilder,private loginService:UserLoginService) {
     // this.usernameCtrl = fb.control('');
     // this.passwordCtrl = fb.control('');
 
@@ -44,9 +52,12 @@ export class Formulaire3Component implements OnInit {
 
   register(){
 
-    console.log(this.userForm.value as User);
+    console.log(this.userForm.value);
     let user:User = this.userForm.value as User;
-    this.userlogin.islogin(user.username,user.password);
+    // let user:User = new User(this.usernameCtrl.value,this.passwordCtrl.value);
+    this.loginService.addUser(user);
+    this.reset();
+    this.loginService.logIn(user);
 
   }
 
@@ -55,6 +66,8 @@ export class Formulaire3Component implements OnInit {
     // this.passwordCtrl.setValue('');
     this.userForm.reset()
   }
+
+
 
 
 }

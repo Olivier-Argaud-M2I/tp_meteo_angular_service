@@ -17,11 +17,12 @@ import { StarshipComponent } from './starwar/starship/starship.component';
 import { StarwarHeaderComponent } from './starwar/starwar-header/starwar-header.component';
 import { PeopleDetailComponent } from './starwar/people/people-detail/people-detail.component';
 import { PlanetsDetailComponent } from './starwar/planets/planets-detail/planets-detail.component';
-import { AdminComponent } from './header/admin/admin.component';
+import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import { FormulaireComponent } from './formulaire/formulaire.component';
 import { Formulaire2Component } from './formulaire2/formulaire2.component';
 import { Formulaire3Component } from './formulaire3/formulaire3.component';
+import { SnakeComponent } from './snake/snake.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { Formulaire3Component } from './formulaire3/formulaire3.component';
     LoginComponent,
     FormulaireComponent,
     Formulaire2Component,
-    Formulaire3Component
+    Formulaire3Component,
+    SnakeComponent
   ],
   imports: [
     BrowserModule,

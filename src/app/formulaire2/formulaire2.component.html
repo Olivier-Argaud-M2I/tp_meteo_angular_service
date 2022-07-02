@@ -1,27 +1,32 @@
 <p>formulaire2 works!</p>
 
+<div *ngIf="loginError">Mauvais username ou password</div>
 
 <form (ngSubmit)="register(userForm.value)" #userForm="ngForm">
 
     <div>
         <label for="username"> Username</label>
-        <input type="text" name="username" [(ngModel)]="user.username" required minlength="3">
-        <div *nfIf="username.dirty && username.hasError('required')"> pas bien du tout</div>
+        <input type="text" name="username" [(ngModel)]="user.username" required minlength="3" #username="ngModel">
+        <div *ngIf="username.dirty && username.hasError('required')"> champ obligatoire</div>
     </div>
     <div>
         <label for="password"> Password</label>
-        <input type="password" name="password" [(ngModel)]="user.password">
-        <div *nfIf="password.dirty && password.hasError('required')"> pas bien du tout</div>
+        <input type="password" name="password" [(ngModel)]="user.password" required="true" #password="ngModel">
+        <div *ngIf="password.dirty && password.hasError('required')"> champ obligatoire</div>
     </div>
 
-    <input type="submit" value="Envoyer">
+    <input type="submit" value="Envoyer" *ngIf="userForm.valid">
 
 </form>
 
 
 <p>
-    {{user.username}}
+    username {{user.username}}
 </p>
 <p>
-    {{user.password}}
+    password {{user.password}}
 </p>
+
+<div>
+    <input type="button" value="S'inscrire" (click)="go()">
+</div>

@@ -1,16 +1,24 @@
-<p>formulaire3 works!</p>
+
+<h1>Merci de vous inscrire</h1>
 
 <form (ngSubmit)="register()" [formGroup]="userForm">
 
     <div>
         <label> Username</label>
         <input type="text" formControlName="username">
-        <div style="color: red;" *ngIf="userForm.get('username')?.dirty  &&  userForm.get('username')?.hasError('required')"   > pas bien</div>
+        <div style="color: red;" *ngIf="userForm.get('username')?.dirty  &&  userForm.get('username')?.hasError('required')"   > champ obligatoire</div>
+        <div style="color: red;" *ngIf="userForm.get('username')?.touched  &&  userForm.get('username')?.hasError('minlength')"   > saisie invalide (minimum trois caractères)</div>
     </div>
     <div>
         <label> Password</label>
         <input type="password" formControlName="password">
-        <div style="color: red;" *ngIf="userForm.get('password')?.dirty  &&  userForm.get('password')?.hasError('required')"   > pas bien</div>
+        <div style="color: red;" *ngIf="userForm.get('password')?.dirty  &&  userForm.get('password')?.hasError('required')"   > saisie invalide (minimum cinq caractères)</div>
+        <div style="color: red;" *ngIf="userForm.get('password')?.touched  &&  userForm.get('password')?.hasError('minlength')"   > saisie invalide (minimum cinq caractères)</div>
+    </div>
+    <div>
+        <label> Password confirmation</label>
+        <input type="password" formControlName="passwordConf">
+        <div style="color: red;" *ngIf="userForm.invalid  &&  userForm.get('password')?.valid"   > les mots de passe ne correspondent pas </div>
     </div>
 
     <input type="submit" value="Envoyer" [disabled]="userForm.invalid">

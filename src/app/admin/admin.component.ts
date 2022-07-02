@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserLoginService } from '../services/user-login.service';
 
 @Component({
   selector: 'app-admin',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  loginService:UserLoginService;
+
+  constructor(private _loginService:UserLoginService) { 
+    this.loginService = _loginService;
+  }
 
   ngOnInit(): void {
   }
