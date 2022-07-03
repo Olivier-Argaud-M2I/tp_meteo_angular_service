@@ -1,5 +1,7 @@
-<p>formulaire works!</p>
-<h2>Sign up</h2>
+<div>
+    <h2>Log in</h2>
+</div>
+
 
 
 <!-- version html5 a oublier
@@ -7,20 +9,25 @@
     <input type="submit" value="Envoyer">
 </form> -->
 
-<!-- bonne manier avec angular -->
+<!-- bonne maniere avec angular -->
 <form (ngSubmit)="register(userForm.value)" #userForm="ngForm">
 
     <div>
         <label for="username"> Username</label>
+    </div>
+    <div>
         <input type="text" name="username" ngModel>
     </div>
     <div>
         <label for="password"> Password</label>
+    </div>
+    <div>
         <input type="password" name="password" ngModel>
     </div>
-
-    <input type="submit" value="Envoyer">
-
+    <div>
+        <input type="submit" value="Envoyer">
+    </div>
+    
 </form>
 <div>
     <input type="button" value="S'inscrire" (click)="go()">

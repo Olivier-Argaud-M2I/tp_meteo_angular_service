@@ -1,11 +1,13 @@
-<p>login works!</p>
 
 <div>
     <input type="text" placeholder="Login" #login>
+</div>
+<div>
     <input type="password" placeholder="password" #pwd>
+</div>
+<div>
     <input type="button" value="Login" (click)="isLoged(login.value,pwd.value)">
 </div>
-
 <div>
     <input type="button" value="S'inscrire" (click)="go()">
 </div>

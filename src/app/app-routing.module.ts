@@ -26,8 +26,7 @@ const routes: Routes = [
   { path: 'formulaire',   component: FormulaireComponent                                          },
   { path: 'formulaire2',  component: Formulaire2Component                                         },
   { path: 'formulaire3',  component: Formulaire3Component,  canDeactivate:[LoggedInGuardService]  },
-  { path: 'snake',        component: SnakeComponent,                                              },
-  // { path: 'snake',        component: SnakeComponent,        canActivate:[LoggedInGuardService]    },
+  { path: 'snake',        component: SnakeComponent,        canActivate:[LoggedInGuardService]    },
   { path: 'admin',        component: AdminComponent,        canActivate:[LoggedInGuardService]    },
   { path: '**',           component: MeteoComponent                                               }
 
