@@ -12,7 +12,9 @@ export class LoggedInGuardService implements CanActivate,CanDeactivate<any>{
 
   
   canDeactivate(component: any, currentRoute: ActivatedRouteSnapshot, currentState: RouterStateSnapshot, nextState?: RouterStateSnapshot | undefined): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    return this.log.isLogged || this.router.parseUrl('/login');
+    // return this.log.isLogged || this.router.parseUrl('/login'); // genere un bug car ne peux pas sortir de formulaire 3 mais veux rediriger vers login
+    // return this.log.isLogged || this.router.parseUrl('/formulaire3'); // redirection inutile car deja sur formulaire 3
+    return this.log.isLogged;
   }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
     return this.log.isLogged || this.router.parseUrl('/login');
